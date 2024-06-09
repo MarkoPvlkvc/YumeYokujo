@@ -1,7 +1,14 @@
 "use client";
 
 import * as React from "react";
-import { addDays, format } from "date-fns";
+import {
+  addDays,
+  endOfToday,
+  endOfYear,
+  format,
+  startOfMonth,
+  startOfToday,
+} from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 import { DateRange } from "react-day-picker";
 
@@ -15,30 +22,36 @@ import {
 } from "@/components/ui/popover";
 
 const DatePickerWithRange = ({
+  date,
+  setDate,
   className,
+  classNameButton,
+  id,
   disabled,
 }: {
-  className?: React.HTMLAttributes<HTMLDivElement>;
+  date: DateRange | undefined;
+  setDate: (date: DateRange | undefined) => void;
+  className?: string;
+  classNameButton?: string;
+  id?: string;
   disabled?: Date[];
 }) => {
-  const [date, setDate] = React.useState<DateRange | undefined>({
-    from: new Date(2024, 0, 20),
-    to: addDays(new Date(2024, 0, 20), 20),
-  });
+  // date and setDate lifted up from here
 
   return (
-    <div className={cn("grid gap-2", className)}>
+    <div id={id} className={cn("grid gap-2", className)}>
       <Popover>
         <PopoverTrigger asChild>
           <Button
             id="date"
             variant={"outline"}
             className={cn(
-              "w-[300px] justify-start bg-transparent text-left font-normal",
+              "justify-start bg-transparent text-left font-normal",
               !date && "text-muted-foreground",
+              classNameButton,
             )}
           >
-            <CalendarIcon className="mr-2 h-4 w-4" />
+            <CalendarIcon className="mr-2 h-4 w-4 flex-shrink-0" />
             {date?.from ? (
               date.to ? (
                 <>
@@ -49,7 +62,7 @@ const DatePickerWithRange = ({
                 format(date.from, "LLL dd, y")
               )
             ) : (
-              <span>Pick a date</span>
+              <span>Pick a date range</span>
             )}
           </Button>
         </PopoverTrigger>
@@ -57,6 +70,8 @@ const DatePickerWithRange = ({
           <Calendar
             initialFocus
             mode="range"
+            fromDate={startOfMonth(startOfToday())}
+            toDate={endOfYear(endOfToday())}
             defaultMonth={date?.from}
             selected={date}
             onSelect={setDate}

@@ -10,20 +10,29 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { cn } from "@/lib/utils";
 
 const SelectFromList = ({
   icon: Icon,
   text,
   options,
+  value,
+  onChange,
+  className,
+  classNameIcon,
 }: {
-  icon: LucideIcon;
+  icon?: LucideIcon;
   text: string;
   options: string[];
+  value: string;
+  onChange: (value: string) => void;
+  className?: string;
+  classNameIcon?: string;
 }) => {
   return (
-    <Select>
-      <SelectTrigger className="w-[180px] bg-transparent">
-        <Icon className="mr-2 h-4 w-4" />
+    <Select value={value} onValueChange={onChange}>
+      <SelectTrigger className={cn("w-[180px] bg-transparent", className)}>
+        {Icon && <Icon className={cn("mr-2 h-4 w-4", classNameIcon)} />}
         <SelectValue placeholder={text} />
       </SelectTrigger>
       <SelectContent>

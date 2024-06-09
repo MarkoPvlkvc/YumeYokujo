@@ -54,50 +54,29 @@ const componentsAccommodation: {
   },
   {
     title: "Gallery",
-    href: "/",
+    href: "/gallery",
     description: "Browse stunning images of our retreat and accommodations.",
   },
 ];
 
-const componentsOffers: {
-  title: string;
-  href: string;
-  description: string;
-}[] = [
-  {
-    title: "Kaze no Yashiro (Sanctuary of the Wind)",
-    href: "/",
-    description:
-      "Explore our first complex with beautifully themed apartments.",
-  },
-  {
-    title: "Yama no Sato (Mountain Village)",
-    href: "/",
-    description:
-      "Discover our second complex featuring serene, nature-inspired apartments.",
-  },
-  {
-    title: "Gallery",
-    href: "/",
-    description: "Browse stunning images of our retreat and accommodations.",
-  },
-];
-
-const NavigationMenuWithDropdown = () => {
+const NavigationMenuWithDropdown = ({ className }: { className?: string }) => {
   return (
-    <NavigationMenu className="">
+    <NavigationMenu className={cn("text-black/60", className)}>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <Link href="/docs" legacyBehavior passHref>
+          <Link href="/" legacyBehavior passHref>
             <NavigationMenuLink
-              className={cn(navigationMenuTriggerStyle(), "bg-transparent")}
+              className={cn(
+                navigationMenuTriggerStyle(),
+                "bg-transparent font-semibold hover:text-lightBlue focus:text-lightBlue",
+              )}
             >
               HOME
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent">
+          <NavigationMenuTrigger className="bg-transparent font-semibold hover:text-lightBlue focus:text-lightBlue">
             INFO
           </NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -115,7 +94,7 @@ const NavigationMenuWithDropdown = () => {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent">
+          <NavigationMenuTrigger className="bg-transparent font-semibold hover:text-lightBlue focus:text-lightBlue">
             ACCOMMODATION
           </NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -133,18 +112,24 @@ const NavigationMenuWithDropdown = () => {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/docs" legacyBehavior passHref>
+          <Link href="/offers" legacyBehavior passHref>
             <NavigationMenuLink
-              className={cn(navigationMenuTriggerStyle(), "bg-transparent")}
+              className={cn(
+                navigationMenuTriggerStyle(),
+                "bg-transparent font-semibold hover:text-lightBlue focus:text-lightBlue",
+              )}
             >
               OFFERS
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/docs" legacyBehavior passHref>
+          <Link href="/news-&-events" legacyBehavior passHref>
             <NavigationMenuLink
-              className={cn(navigationMenuTriggerStyle(), "bg-transparent")}
+              className={cn(
+                navigationMenuTriggerStyle(),
+                "bg-transparent font-semibold hover:text-lightBlue focus:text-lightBlue",
+              )}
             >
               NEWS & EVENTS
             </NavigationMenuLink>

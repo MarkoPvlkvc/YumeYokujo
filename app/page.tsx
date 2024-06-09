@@ -5,85 +5,189 @@ import {
   PersonStanding,
   BedDouble,
   CalendarCheck,
-  Calendar,
+  TramFront,
+  Utensils,
+  Drama,
+  TentTree,
+  ShowerHead,
+  ArrowRight,
 } from "lucide-react";
 import SelectFromList from "@/components/ui/personal/select_from_list";
 import { Button } from "@/components/ui/button";
-import NavigationMenuWithDropdown from "@/components/ui/personal/navigation_menu_with_dropdown";
+import Navbar from "@/components/ui/personal/navbar";
+import InfoCard from "@/components/ui/personal/info_card";
+import BookingDetailsHero from "@/components/ui/personal/booking_details_hero";
 
 export default function Home() {
+  const newsAndEventInfoCards = [
+    {
+      src: "news1.jpg",
+      date: "MAY 11, 2024",
+      type: "EVENT",
+      title: "Moonlit Onsen Soiree",
+      description:
+        "Experience the magic of our Moonlit Onsen Soiree, where the soothing waters of our natural hot springs meet the shimmering glow of the moonlight. Slip into the warm embrace of our rejuvenati...",
+    },
+    {
+      src: "news2.jpg",
+      date: "MAY 09, 2024",
+      type: "EVENT",
+      title: "Sakura Serenity Festival",
+      description:
+        "Join us for a celebration of the enchanting cherry blossoms during our Sakura Serenity Festival. Witness the breathtaking beauty of the sakura trees in full bloom as...",
+    },
+    {
+      src: "news3.jpg",
+      date: "MAY 06, 2024",
+      type: "NEWS",
+      title: "Unveiling Our New Wellness Retreat",
+      description:
+        "We are thrilled to announce the launch of our newest offering: the Yume Yokujo Wellness Retreat. Designed to elevate your journey...",
+    },
+  ];
+
+  const offersInfoCards = [
+    {
+      src: "offers1.jpg",
+      date: "UNTIL APR 30, 2024",
+      type: "SEASONAL",
+      title: "Blossom Bliss Spring Special",
+      description:
+        "Enjoy a 20% discount on your stay during the cherry blossom season. Indulge in complimentary guided walks to nearby cherry blossom spots and traditional tea ceremonies to fully immerse yourself in the season's splendor.",
+    },
+    {
+      src: "offers2.jpg",
+      date: "FOREVER",
+      type: "ROMANTIC",
+      title: "Moonlit Serenity Retreat",
+      description:
+        "Receive a complimentary candlelit dinner for two at our exclusive outdoor dining area, along with a bottle of champagne upon arrival. Enjoy a 15% discount on your stay when booking for 2 people.",
+    },
+    {
+      src: "offers3.jpg",
+      date: "UNTIL AUG 31, 2024",
+      type: "FAMILY",
+      title: "Family Fun Getaway",
+      description:
+        "Kids stay and eat for free! Enjoy complimentary access to our family-friendly activities, including nature walks, Japanese storytelling sessions, and traditional crafts workshops.",
+    },
+  ];
+
   return (
-    <main className="font-inter w-[100vw] text-black">
-      <nav className="absolute left-[50%] top-[32px] z-10 flex h-[85px] w-fit -translate-x-1/2 gap-20 rounded-l-3xl rounded-r-[30px] bg-white">
-        <div className="flex h-full w-max">
-          <img src="/logo.png" className="ml-8 h-full py-4"></img>
+    <main>
+      <Navbar />
 
-          <div className="ml-3 flex w-max flex-col justify-center py-4">
-            <p className="text-nowrap text-xl font-bold leading-none">
-              YUME YOKUJO
-            </p>
-
-            <div className="font-playfair flex w-full justify-between text-center text-xs">
-              <span className="flex-1">O</span>
-              <span className="flex-1">A</span>
-              <span className="flex-1">S</span>
-              <span className="flex-1">I</span>
-              <span className="flex-1">S</span>
-              <span className="flex-1"> </span>
-              <span className="flex-1">R</span>
-              <span className="flex-1">E</span>
-              <span className="flex-1">T</span>
-              <span className="flex-1">R</span>
-              <span className="flex-1">E</span>
-              <span className="flex-1">A</span>
-              <span className="flex-1">T</span>
-            </div>
-          </div>
-        </div>
-
-        <NavigationMenuWithDropdown />
-
-        <button className="-mr-[1px] flex h-[100%] w-fit items-center justify-center text-nowrap rounded-r-3xl bg-darkBlue px-9 font-medium text-white transition-colors hover:bg-[#376075]">
-          <Calendar className="mr-2 h-4 w-4" />
-          BOOK NOW
-        </button>
-      </nav>
-
-      <section className="relative flex h-svh items-center justify-center text-7xl">
+      <section className="relative flex h-svh items-center justify-center overflow-hidden">
         <img
           src="/background-upscaled.jpeg"
-          className="h-full w-full object-cover"
+          className="pointer-events-none h-full w-full select-none object-cover"
         ></img>
-        <p className="absolute text-9xl font-bold text-lightBlue opacity-50 mix-blend-lighten">
+        <p className="absolute text-nowrap text-5xl font-bold text-lightBlue opacity-50 mix-blend-lighten md:text-7xl lg:text-8xl">
           YUME YOKUJO
         </p>
-        <p className="font-playfair absolute text-center text-white">
+        <p className="absolute text-center font-playfair text-3xl text-white md:text-5xl lg:text-6xl">
           Where Dreams <br></br> Meet Tranquility
         </p>
 
-        <div className="absolute bottom-0 left-[50%] flex -translate-x-1/2 items-center gap-5 rounded-t-3xl bg-white p-6">
-          <DatePickerWithRange
-            disabled={[new Date(2024, 0, 16), new Date(2024, 0, 17)]}
-          />
-          <SelectFromList
-            icon={UserRound}
-            text="Adults"
-            options={["1", "2", "3", "4", "5", "6"]}
-          />
-          <SelectFromList
-            icon={PersonStanding}
-            text="Children"
-            options={["1", "2", "3", "4", "5", "6"]}
-          />
-          <SelectFromList
-            icon={BedDouble}
-            text="Rooms"
-            options={["1", "2", "3", "4", "5", "6"]}
-          />
-          <Button size={"lg"}>
-            <CalendarCheck className="mr-2 h-4 w-4" />
-            BOOK NOW
-          </Button>
+        <BookingDetailsHero />
+      </section>
+
+      <section className="flex flex-col items-center">
+        <div className="mt-16 grid max-w-5xl grid-cols-1 gap-12 px-6 md:mt-24 md:grid-cols-2 lg:mt-32">
+          <div className="flex h-fit max-w-xl flex-col">
+            <p className="font-medium text-lightBlue">ABOUT US</p>
+            <p className="mt-1 text-xl font-semibold leading-tight md:mt-2 md:text-2xl lg:text-3xl">
+              Welcome To <br></br> Yume Yokujo Retreat
+            </p>
+            <p className="mt-6 text-base leading-tight text-black/50 md:mt-8 md:text-lg lg:mt-9">
+              Whether you seek a peaceful retreat to recharge your spirit, a
+              romantic getaway with your loved one, or an unforgettable
+              adventure in the heart of Japan, Yume Yokujo Oasis Retreat invites
+              you to embark on a journey of serenity and discovery.
+            </p>
+            <img
+              src="signature.png"
+              className="mt-9 w-[200px] opacity-40 md:mt-11 md:w-[250px] lg:mt-12"
+            />
+          </div>
+
+          <div className="grid h-fit max-w-[400px] grid-cols-2 grid-rows-2 gap-4 justify-self-center md:justify-self-end">
+            <img
+              src="about1.jpg"
+              className="col-span-2 h-[200px] w-full rounded-3xl object-cover"
+            />
+            <img
+              src="about3.jpg"
+              className="h-[200px] w-full rounded-3xl object-cover"
+            />
+            <img
+              src="about2.jpg"
+              className="h-[200px] w-full rounded-3xl object-cover"
+            />
+          </div>
+        </div>
+
+        <div className="mb-12 mt-16 flex w-full flex-wrap justify-center gap-16 px-6 md:mb-16 md:mt-24 lg:mb-24">
+          <div className="flex flex-col items-center justify-center">
+            <TramFront className="size-9 text-lightBlue md:size-11 lg:size-12" />
+            <p className="mt-4 text-center text-base leading-tight md:text-lg lg:text-xl">
+              Transportation
+            </p>
+          </div>
+          <div className="flex flex-col items-center justify-center">
+            <ShowerHead className="size-9 text-lightBlue md:size-11 lg:size-12" />
+            <p className="mt-4 text-center text-base leading-tight md:text-lg lg:text-xl">
+              Spa & Wellness
+            </p>
+          </div>
+          <div className="flex flex-col items-center justify-center">
+            <Utensils className="size-9 text-lightBlue md:size-11 lg:size-12" />
+            <p className="mt-4 text-center text-base leading-tight md:text-lg lg:text-xl">
+              Restaurant
+            </p>
+          </div>
+          <div className="flex flex-col items-center justify-center">
+            <Drama className="size-9 text-lightBlue md:size-11 lg:size-12" />
+            <p className="mt-4 text-center text-base leading-tight md:text-lg lg:text-xl">
+              Cultural Experiences
+            </p>
+          </div>
+          <div className="flex flex-col items-center justify-center">
+            <TentTree className="size-9 text-lightBlue md:size-11 lg:size-12" />
+            <p className="mt-4 text-center text-base leading-tight md:text-lg lg:text-xl">
+              Outdoor Activities
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="flex flex-col items-center bg-gray/50">
+        <p className="mt-16 text-center font-medium text-lightBlue md:mt-24 lg:mt-32">
+          OUR BLOG
+        </p>
+        <p className="mt-1 text-xl font-semibold md:mt-2 md:text-2xl lg:text-3xl">
+          Latest News & Events
+        </p>
+
+        <div className="mb-12 mt-9 grid grid-cols-1 justify-center gap-4 px-6 md:mb-16 md:mt-12 md:grid-cols-2 lg:mb-24 lg:mt-16 xl:grid-cols-3">
+          {newsAndEventInfoCards.map((card, index) => (
+            <InfoCard key={index} blogIndex={index + 1} {...card} />
+          ))}
+        </div>
+      </section>
+
+      <section className="flex flex-col items-center">
+        <p className="mt-16 text-center font-medium text-lightBlue md:mt-24 lg:mt-32">
+          OUR OFFERS
+        </p>
+        <p className="mt-1 text-xl font-semibold md:mt-2 md:text-2xl lg:text-3xl">
+          Top offers this month
+        </p>
+
+        <div className="mb-12 mt-9 grid grid-cols-1 justify-center gap-4 px-6 md:mb-16 md:mt-12 md:grid-cols-2 lg:mb-24 lg:mt-16 xl:grid-cols-3">
+          {offersInfoCards.map((card, index) => (
+            <InfoCard key={index} {...card} />
+          ))}
         </div>
       </section>
     </main>
