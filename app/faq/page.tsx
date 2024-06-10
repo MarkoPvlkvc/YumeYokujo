@@ -99,7 +99,7 @@ const FAQ = () => {
 
               <div>
                 <h3 className="text-gray-800 font-semibold md:text-lg">
-                  How does Preline's pricing work?
+                  How does Preline&apos;s pricing work?
                 </h3>
                 <p className="text-gray-500 mt-1">
                   Our subscriptions are tiered. Understanding the task at hand
@@ -165,12 +165,13 @@ const FAQ = () => {
                   How do I get access to a theme I purchased?
                 </h3>
                 <p className="text-gray-500 mt-1">
-                  If you lose the link for a theme you purchased, don't panic!
-                  We've got you covered. You can login to your account, tap your
-                  avatar in the upper right corner, and tap Purchases. If you
-                  didn't create a login or can't remember the information, you
-                  can use our handy Redownload page, just remember to use the
-                  same email you originally made your purchases with.
+                  If you lose the link for a theme you purchased, don&apos;t
+                  panic! We&apos;ve got you covered. You can login to your
+                  account, tap your avatar in the upper right corner, and tap
+                  Purchases. If you didn&apos;t create a login or can&apos;t
+                  remember the information, you can use our handy Redownload
+                  page, just remember to use the same email you originally made
+                  your purchases with.
                 </p>
               </div>
             </div>
