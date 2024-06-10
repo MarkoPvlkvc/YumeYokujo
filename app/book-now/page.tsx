@@ -482,7 +482,11 @@ const BookNowContent = () => {
             </ul>
           </div>
 
-          <Button size={"lg"} className="ml-auto mt-3 w-fit">
+          <Button
+            onClick={handleClick}
+            size={"lg"}
+            className="ml-auto mt-3 w-fit"
+          >
             <Check className="mr-2 h-4 w-4" />
             CONFIRM
           </Button>
