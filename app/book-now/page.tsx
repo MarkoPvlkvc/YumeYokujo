@@ -7,7 +7,7 @@ import SelectFromList from "@/components/ui/personal/select_from_list";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import React from "react";
+import React, { Suspense } from "react";
 import { DateRange } from "react-day-picker";
 import {
   addDays,
@@ -35,7 +35,7 @@ const fetcher = async () => {
   return data;
 };
 
-const BookNow = () => {
+const BookNowContent = () => {
   const perNight = 200;
   var duration = 0;
 
@@ -492,5 +492,11 @@ const BookNow = () => {
     </main>
   );
 };
+
+const BookNow = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <BookNowContent />
+  </Suspense>
+);
 
 export default BookNow;
