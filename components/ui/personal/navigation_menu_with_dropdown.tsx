@@ -24,12 +24,12 @@ const componentsInfo: { title: string; href: string; description: string }[] = [
   },
   {
     title: "Contact & Info",
-    href: "/",
+    href: "/contact-&-info",
     description: "View our location, email form, working hours, and reviews.",
   },
   {
     title: "FAQ",
-    href: "/",
+    href: "/faq",
     description:
       "Find answers to common questions about your stay and amenities.",
   },
@@ -42,13 +42,13 @@ const componentsAccommodation: {
 }[] = [
   {
     title: "Kaze no Yashiro (Sanctuary of the Wind)",
-    href: "/",
+    href: "/kaze-no-yashiro",
     description:
       "Explore our first complex with beautifully themed apartments.",
   },
   {
     title: "Yama no Sato (Mountain Village)",
-    href: "/",
+    href: "/yama-no-sato",
     description:
       "Discover our second complex featuring serene, nature-inspired apartments.",
   },

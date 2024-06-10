@@ -31,19 +31,44 @@ const NavbarDropdown = ({ className }: { className?: string }) => {
           >
             HOME
           </button>
-          <button className="w-full px-6 py-2 text-start transition-colors hover:text-white">
+          <button
+            onClick={() => {
+              router.push("/");
+            }}
+            className="w-full px-6 py-2 text-start transition-colors hover:text-white"
+          >
             ABOUT US
           </button>
-          <button className="w-full px-6 py-2 text-start transition-colors hover:text-white">
+          <button
+            onClick={() => {
+              router.push("/contact-&-info");
+            }}
+            className="w-full px-6 py-2 text-start transition-colors hover:text-white"
+          >
             CONTACT & INFO
           </button>
-          <button className="w-full px-6 py-2 text-start transition-colors hover:text-white">
+          <button
+            onClick={() => {
+              router.push("/faq");
+            }}
+            className="w-full px-6 py-2 text-start transition-colors hover:text-white"
+          >
             FAQ
           </button>
-          <button className="w-full px-6 py-2 text-start transition-colors hover:text-white">
+          <button
+            onClick={() => {
+              router.push("/kaze-no-yashiro");
+            }}
+            className="w-full px-6 py-2 text-start transition-colors hover:text-white"
+          >
             KAZE NO YASHIRO
           </button>
-          <button className="w-full px-6 py-2 text-start transition-colors hover:text-white">
+          <button
+            onClick={() => {
+              router.push("/yama-no-sato");
+            }}
+            className="w-full px-6 py-2 text-start transition-colors hover:text-white"
+          >
             YAMA NO SATO
           </button>
           <button

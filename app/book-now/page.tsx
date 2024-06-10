@@ -20,6 +20,7 @@ import { useSearchParams } from "next/navigation";
 import AccommodationSheet from "@/components/ui/personal/accommodation_sheet";
 import { createClient } from "@/utils/supabase/client";
 import useSWR from "swr";
+import { loadStripe } from "@stripe/stripe-js";
 
 const fetcher = async () => {
   const supabase = createClient();
@@ -36,6 +37,7 @@ const fetcher = async () => {
 
 const BookNow = () => {
   const perNight = 200;
+  var duration = 0;
 
   const [price, setPrice] = React.useState(0);
   const [priceTotal, setPriceTotal] = React.useState(0);
@@ -48,75 +50,6 @@ const BookNow = () => {
     from: undefined,
     to: undefined,
   });
-
-  const searchParams = useSearchParams();
-
-  React.useEffect(() => {
-    const selectedAdultsParams = searchParams.get("adults")?.toString();
-    const selectedChildrenParams = searchParams.get("children")?.toString();
-    const selectedRoomsParams = searchParams.get("rooms")?.toString();
-
-    setSelectedAdults(selectedAdultsParams!);
-    setSelectedChildren(selectedChildrenParams!);
-    setSelectedRooms(selectedRoomsParams! || "1"); // Default to 1 if empty
-
-    const fromDate = searchParams.get("from");
-    const toDate = searchParams.get("to");
-    if (fromDate && toDate) {
-      setDate({ from: new Date(fromDate), to: new Date(toDate) });
-    }
-  }, [searchParams]);
-
-  React.useEffect(() => {
-    if (date?.from && date?.to) {
-      const duration = differenceInDays(date.to, date.from);
-      const price = duration * perNight * +selectedRooms;
-      setPrice(price);
-      setPriceTotal(price - 120);
-    } else {
-      console.log("Selected Date Range:", date);
-      console.log("Duration in days: Not available");
-    }
-  }, [date, selectedRooms]);
-
-  // Calendar Database
-  const { data: dates, error } = useSWR("calendarBookedDates", fetcher, {
-    revalidateOnFocus: false,
-    dedupingInterval: 86400000, // 24 hours
-    refreshInterval: 60000, // 1 minute
-  });
-
-  React.useEffect(() => {
-    if (dates) {
-      const allDisabledDates: Date[] = [];
-      const today = startOfToday();
-      const startOfCurrentMonth = startOfMonth(today);
-
-      // Add all dates from the start of the month to yesterday
-      const datesFromStartOfMonth = eachDayOfInterval({
-        start: startOfCurrentMonth,
-        end: addDays(today, -1),
-      });
-      allDisabledDates.push(...datesFromStartOfMonth);
-
-      // Add dates from the database to allDisabledDates
-      dates.forEach((item: { from: string; to: string }) => {
-        const fromDate = new Date(decodeURIComponent(item.from));
-        const toDate = new Date(decodeURIComponent(item.to));
-        const interval = eachDayOfInterval({
-          start: fromDate,
-          end: toDate,
-        });
-        allDisabledDates.push(...interval);
-      });
-
-      setDisabledDates(allDisabledDates);
-    }
-
-    if (error) {
-      console.error("Error fetching dates:", error);
-    }
-  }, [dates, error]);
 
   const [selectedApartment, setSelectedApartment] = React.useState(0);
   const apartmentSheetCards = [
@@ -181,6 +114,108 @@ const BookNow = () => {
       translation: "Flower",
     },
   ];
+
+  const searchParams = useSearchParams();
+
+  React.useEffect(() => {
+    const selectedAdultsParams = searchParams.get("adults")?.toString();
+    const selectedChildrenParams = searchParams.get("children")?.toString();
+    const selectedRoomsParams = searchParams.get("rooms")?.toString();
+
+    setSelectedAdults(selectedAdultsParams!);
+    setSelectedChildren(selectedChildrenParams!);
+    setSelectedRooms(selectedRoomsParams! || "1"); // Default to 1 if empty
+
+    const fromDate = searchParams.get("from");
+    const toDate = searchParams.get("to");
+    if (fromDate && toDate) {
+      setDate({ from: new Date(fromDate), to: new Date(toDate) });
+    }
+
+    const selectedApartmentParams = searchParams.get("apartment")?.toString();
+    selectedApartmentParams && setSelectedApartment(+selectedApartmentParams);
+  }, [searchParams]);
+
+  React.useEffect(() => {
+    if (date?.from && date?.to) {
+      duration = differenceInDays(date.to, date.from);
+      const price = duration * perNight * +selectedRooms;
+      setPrice(price);
+      setPriceTotal(price - 120);
+    } else {
+      console.log("Selected Date Range:", date);
+      console.log("Duration in days: Not available");
+    }
+  }, [date, selectedRooms]);
+
+  // Calendar Database
+  const { data: dates, error } = useSWR("calendarBookedDates", fetcher, {
+    revalidateOnFocus: false,
+    dedupingInterval: 86400000, // 24 hours
+    refreshInterval: 60000, // 1 minute
+  });
+
+  React.useEffect(() => {
+    if (dates) {
+      const allDisabledDates: Date[] = [];
+      const today = startOfToday();
+      const startOfCurrentMonth = startOfMonth(today);
+
+      // Add all dates from the start of the month to yesterday
+      const datesFromStartOfMonth = eachDayOfInterval({
+        start: startOfCurrentMonth,
+        end: addDays(today, -1),
+      });
+      allDisabledDates.push(...datesFromStartOfMonth);
+
+      // Add dates from the database to allDisabledDates
+      dates.forEach((item: { from: string; to: string }) => {
+        const fromDate = new Date(decodeURIComponent(item.from));
+        const toDate = new Date(decodeURIComponent(item.to));
+        const interval = eachDayOfInterval({
+          start: fromDate,
+          end: toDate,
+        });
+        allDisabledDates.push(...interval);
+      });
+
+      setDisabledDates(allDisabledDates);
+    }
+
+    if (error) {
+      console.error("Error fetching dates:", error);
+    }
+  }, [dates, error]);
+  // Calendar Database - END
+
+  // Stripe Checkout
+  let stripePromise = loadStripe(
+    "pk_test_51PPve3F7NnXlgGSuryvegwa99yjBOskJmkeBo6aGsa7yRuqBEXF14l2GARn18PgVznbioWEdXVWGkJDb609pXG1D00C0BRh7dw",
+  );
+
+  const handleClick = async () => {
+    const stripe = await stripePromise;
+    if (!stripe) {
+      console.error("Stripe is not initialized.");
+      return;
+    }
+
+    const { error } = await stripe.redirectToCheckout({
+      lineItems: [
+        { price: "price_1PPvjsF7NnXlgGSudkSLpbv4", quantity: duration },
+      ],
+      mode: "payment",
+      successUrl:
+        "https://3000-idx-yumeyokujo-1717501624597.cluster-wxkvpdxct5e4sxx4nbgdioeb46.cloudworkstations.dev/success",
+      cancelUrl:
+        "https://3000-idx-yumeyokujo-1717501624597.cluster-wxkvpdxct5e4sxx4nbgdioeb46.cloudworkstations.dev/error",
+    });
+
+    if (error) {
+      console.error(error);
+    }
+  };
+  // Stripe Checkout - END
 
   return (
     <main className="flex flex-col items-center">
