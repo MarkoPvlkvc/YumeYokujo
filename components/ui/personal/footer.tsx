@@ -15,7 +15,7 @@ const Footer = () => {
                 YUME YOKUJO
               </p>
 
-              <div className="font-playfair flex w-full justify-between text-center text-xs font-medium text-white/75">
+              <div className="flex w-full justify-between text-center font-playfair text-xs font-medium text-white/75">
                 <span className="flex-1">O</span>
                 <span className="flex-1">A</span>
                 <span className="flex-1">S</span>
@@ -88,9 +88,9 @@ const Footer = () => {
             <form>
               <p className="mt-8 text-white/50">
                 Sign up for our newsletter to stay in the loop with the latest
-                events, news, and discounts at Yume Yokujo Oasis Retreat. Don't
-                miss out on special offers and promotions tailored just for you.
-                Join now and elevate your journey with us!
+                events, news, and discounts at Yume Yokujo Oasis Retreat.
+                Don&apos;t miss out on special offers and promotions tailored
+                just for you. Join now and elevate your journey with us!
               </p>
               <InputWithButton />
             </form>
