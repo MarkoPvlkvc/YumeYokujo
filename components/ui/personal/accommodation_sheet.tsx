@@ -59,7 +59,7 @@ const AccommodationSheet = ({
             {apartmentSheetCards.slice(5).map((card, index) => (
               <ApartmentSheetCard
                 setSelectedApartment={setSelectedApartment}
-                apartmentIndex={index}
+                apartmentIndex={index + 5}
                 setOpen={setOpen}
                 key={index}
                 {...card}
