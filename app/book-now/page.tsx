@@ -37,7 +37,8 @@ const fetcher = async () => {
 
 const BookNowContent = () => {
   const perNight = 200;
-  var duration = 0;
+
+  const durationRef = React.useRef(1);
 
   const [price, setPrice] = React.useState(0);
   const [priceTotal, setPriceTotal] = React.useState(0);
@@ -138,8 +139,8 @@ const BookNowContent = () => {
 
   React.useEffect(() => {
     if (date?.from && date?.to) {
-      duration = differenceInDays(date.to, date.from);
-      const price = duration * perNight * +selectedRooms;
+      durationRef.current = differenceInDays(date.to, date.from);
+      const price = durationRef.current * perNight * +selectedRooms;
       setPrice(price);
       setPriceTotal(price - 120);
     } else {
@@ -202,7 +203,10 @@ const BookNowContent = () => {
 
     const { error } = await stripe.redirectToCheckout({
       lineItems: [
-        { price: "price_1PPvjsF7NnXlgGSudkSLpbv4", quantity: duration },
+        {
+          price: "price_1PPvjsF7NnXlgGSudkSLpbv4",
+          quantity: durationRef.current,
+        },
       ],
       mode: "payment",
       successUrl:
