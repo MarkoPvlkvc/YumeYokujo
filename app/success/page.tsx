@@ -29,7 +29,7 @@ const Success = () => {
   const router = useRouter();
   return (
     <main className=" bg-white font-inter">
-      <div className="flex h-screen w-screen flex-row flex-wrap items-center justify-center gap-5 px-6">
+      <div className="mb-12 mt-16 flex h-screen w-screen flex-row flex-wrap items-center justify-center gap-5 px-6 md:mb-0 md:mt-0">
         <div className="flex w-[350px] flex-col">
           <img src="/logo.png" className="h-10 w-fit"></img>
           <h1 className="mt-5 w-full text-left text-[16px] font-medium text-lightBlue">

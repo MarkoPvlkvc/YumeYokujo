@@ -38,7 +38,7 @@ const fetcher = async () => {
 const BookNowContent = () => {
   const perNight = 200;
 
-  const durationRef = React.useRef(1);
+  const stripeTotalQuantity = React.useRef(1);
 
   const [price, setPrice] = React.useState(0);
   const [priceTotal, setPriceTotal] = React.useState(0);
@@ -139,10 +139,12 @@ const BookNowContent = () => {
 
   React.useEffect(() => {
     if (date?.from && date?.to) {
-      durationRef.current = differenceInDays(date.to, date.from);
-      const price = durationRef.current * perNight * +selectedRooms;
+      const duration = differenceInDays(date.to, date.from);
+      const price = duration * perNight * +selectedRooms;
       setPrice(price);
       setPriceTotal(price - 120);
+
+      stripeTotalQuantity.current = duration * +selectedRooms;
     } else {
       console.log("Selected Date Range:", date);
       console.log("Duration in days: Not available");
@@ -205,7 +207,7 @@ const BookNowContent = () => {
       lineItems: [
         {
           price: "price_1PPvjsF7NnXlgGSudkSLpbv4",
-          quantity: durationRef.current,
+          quantity: stripeTotalQuantity.current,
         },
       ],
       mode: "payment",
