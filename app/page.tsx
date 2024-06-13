@@ -92,7 +92,7 @@ export default function Home() {
         <BookingDetailsHero />
       </section>
 
-      <section className="flex flex-col items-center">
+      <section id="about-us" className="flex flex-col items-center">
         <div className="mt-16 grid max-w-5xl grid-cols-1 gap-12 px-6 md:mt-24 md:grid-cols-2 lg:mt-32">
           <div className="flex h-fit max-w-xl flex-col">
             <p className="font-medium text-lightBlue">ABOUT US</p>

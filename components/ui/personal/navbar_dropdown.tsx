@@ -33,7 +33,7 @@ const NavbarDropdown = ({ className }: { className?: string }) => {
           </button>
           <button
             onClick={() => {
-              router.push("/");
+              router.push("/#about-us");
             }}
             className="w-full px-6 py-2 text-start transition-colors hover:text-white"
           >

@@ -14,7 +14,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-inter w-[100vw] bg-white text-black">
+      <head>
+        <link rel="icon" href="/favicon.png" sizes="any" />
+      </head>
+      <body className="w-[100vw] bg-white font-inter text-black">
         {children}
         <Footer />
       </body>

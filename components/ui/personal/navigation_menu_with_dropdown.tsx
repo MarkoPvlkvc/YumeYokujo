@@ -18,7 +18,7 @@ import {
 const componentsInfo: { title: string; href: string; description: string }[] = [
   {
     title: "About Us",
-    href: "/",
+    href: "/#about-us",
     description:
       "Discover our mission, values, and unique experiences on the home page.",
   },

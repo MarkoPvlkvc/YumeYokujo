@@ -38,22 +38,31 @@ const Footer = () => {
             <h4 className="text-xl font-bold">Info</h4>
             <div className="mt-8 grid space-y-4 text-white/50">
               <p>
-                <Link href="#" className="transition-colors hover:text-white">
+                <Link href="/" className="transition-colors hover:text-white">
                   Home
                 </Link>
               </p>
               <p>
-                <Link href="#" className="transition-colors hover:text-white">
+                <Link
+                  href="/#about-us"
+                  className="transition-colors hover:text-white"
+                >
                   About Us
                 </Link>
               </p>
               <p>
-                <Link href="#" className="transition-colors hover:text-white">
+                <Link
+                  href="/contact-&-info"
+                  className="transition-colors hover:text-white"
+                >
                   Contact & Info
                 </Link>
               </p>
               <p>
-                <Link href="#" className="transition-colors hover:text-white">
+                <Link
+                  href="/faq"
+                  className="transition-colors hover:text-white"
+                >
                   FAQ
                 </Link>
               </p>
@@ -65,17 +74,26 @@ const Footer = () => {
             <h4 className="text-xl font-bold">Accommodation</h4>
             <div className="mt-8 grid space-y-4 leading-tight text-white/50">
               <p>
-                <Link href="#" className="transition-colors hover:text-white">
+                <Link
+                  href="/kaze-no-yashiro"
+                  className="transition-colors hover:text-white"
+                >
                   Kaze no Yashiro <br></br> (Sanctuary of the Wind)
                 </Link>
               </p>
               <p>
-                <Link href="#" className="transition-colors hover:text-white">
+                <Link
+                  href="/yama-no-sato"
+                  className="transition-colors hover:text-white"
+                >
                   Yama no Sato <br></br> (Mountain Village)
                 </Link>
               </p>
               <p>
-                <Link href="#" className="transition-colors hover:text-white">
+                <Link
+                  href="/gallery"
+                  className="transition-colors hover:text-white"
+                >
                   Gallery
                 </Link>
               </p>

@@ -209,10 +209,8 @@ const BookNowContent = () => {
         },
       ],
       mode: "payment",
-      successUrl:
-        "https://3000-idx-yumeyokujo-1717501624597.cluster-wxkvpdxct5e4sxx4nbgdioeb46.cloudworkstations.dev/success",
-      cancelUrl:
-        "https://3000-idx-yumeyokujo-1717501624597.cluster-wxkvpdxct5e4sxx4nbgdioeb46.cloudworkstations.dev/error",
+      successUrl: "https://yume-yokujo.vercel.app/success",
+      cancelUrl: "https://yume-yokujo.vercel.app/error",
     });
 
     if (error) {
