@@ -18,6 +18,7 @@ import Navbar from "@/components/ui/personal/navbar";
 import InfoCard from "@/components/ui/personal/info_card";
 import BookingDetailsHero from "@/components/ui/personal/booking_details_hero";
 import { newsAndEventInfoCards, offersInfoCards } from "@/lib/constants";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -25,10 +26,13 @@ export default function Home() {
       <Navbar />
 
       <section className="relative flex h-svh items-center justify-center overflow-hidden">
-        <img
+        <Image
           src="/background-upscaled.jpeg"
+          alt="hero background image"
+          fill
           className="pointer-events-none h-full w-full select-none object-cover"
-        ></img>
+          priority
+        />
         <p className="absolute select-none text-nowrap text-5xl font-bold text-lightBlue opacity-50 mix-blend-lighten md:text-7xl lg:text-8xl">
           YUME YOKUJO
         </p>
@@ -53,7 +57,8 @@ export default function Home() {
               you to embark on a journey of serenity and discovery.
             </p>
             <img
-              src="signature.png"
+              src="/signature.png"
+              alt="yume yokujo team signature"
               className="mt-9 w-[200px] opacity-40 md:mt-11 md:w-[250px] lg:mt-12"
             />
           </div>
