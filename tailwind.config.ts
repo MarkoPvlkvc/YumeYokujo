@@ -81,8 +81,8 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        playfair: ["Playfair Display", "serif"],
-        inter: ["Inter", "sans-serif"],
+        playfair: ["var(--font-playfair-display)", "serif"],
+        inter: ["var(--font-inter)", "sans-serif"],
       },
     },
   },
