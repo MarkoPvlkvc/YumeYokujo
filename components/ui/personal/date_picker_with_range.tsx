@@ -10,7 +10,6 @@ import {
   startOfToday,
 } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
-import { DateRange } from "react-day-picker";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -20,6 +19,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { DatePickerWithRangeProps } from "@/lib/types";
 
 const DatePickerWithRange = ({
   date,
@@ -28,14 +28,7 @@ const DatePickerWithRange = ({
   classNameButton,
   id,
   disabled,
-}: {
-  date: DateRange | undefined;
-  setDate: (date: DateRange | undefined) => void;
-  className?: string;
-  classNameButton?: string;
-  id?: string;
-  disabled?: Date[];
-}) => {
+}: DatePickerWithRangeProps) => {
   // date and setDate lifted up from here
 
   return (

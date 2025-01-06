@@ -38,14 +38,17 @@ const Footer = () => {
             <h4 className="text-xl font-bold">Info</h4>
             <div className="mt-8 grid space-y-4 text-white/50">
               <p>
-                <Link href="/" className="transition-colors hover:text-white">
+                <Link
+                  href="/"
+                  className="can-hover:hover:text-white transition-colors"
+                >
                   Home
                 </Link>
               </p>
               <p>
                 <Link
                   href="/#about-us"
-                  className="transition-colors hover:text-white"
+                  className="can-hover:hover:text-white transition-colors"
                 >
                   About Us
                 </Link>
@@ -53,7 +56,7 @@ const Footer = () => {
               <p>
                 <Link
                   href="/contact-&-info"
-                  className="transition-colors hover:text-white"
+                  className="can-hover:hover:text-white transition-colors"
                 >
                   Contact & Info
                 </Link>
@@ -61,7 +64,7 @@ const Footer = () => {
               <p>
                 <Link
                   href="/faq"
-                  className="transition-colors hover:text-white"
+                  className="can-hover:hover:text-white transition-colors"
                 >
                   FAQ
                 </Link>
@@ -76,7 +79,7 @@ const Footer = () => {
               <p>
                 <Link
                   href="/kaze-no-yashiro"
-                  className="transition-colors hover:text-white"
+                  className="can-hover:hover:text-white transition-colors"
                 >
                   Kaze no Yashiro <br></br> (Sanctuary of the Wind)
                 </Link>
@@ -84,7 +87,7 @@ const Footer = () => {
               <p>
                 <Link
                   href="/yama-no-sato"
-                  className="transition-colors hover:text-white"
+                  className="can-hover:hover:text-white transition-colors"
                 >
                   Yama no Sato <br></br> (Mountain Village)
                 </Link>
@@ -92,7 +95,7 @@ const Footer = () => {
               <p>
                 <Link
                   href="/gallery"
-                  className="transition-colors hover:text-white"
+                  className="can-hover:hover:text-white transition-colors"
                 >
                   Gallery
                 </Link>

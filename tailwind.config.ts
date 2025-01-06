@@ -84,6 +84,9 @@ const config = {
         playfair: ["var(--font-playfair-display)", "serif"],
         inter: ["var(--font-inter)", "sans-serif"],
       },
+      screens: {
+        "can-hover": { raw: "(hover: hover) and (pointer: fine)" },
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

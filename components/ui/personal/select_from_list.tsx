@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Icon, LucideIcon } from "lucide-react";
 
 import {
   Select,
@@ -11,6 +10,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
+import { SelectFromListProps } from "@/lib/types";
 
 const SelectFromList = ({
   icon: Icon,
@@ -20,15 +20,7 @@ const SelectFromList = ({
   onChange,
   className,
   classNameIcon,
-}: {
-  icon?: LucideIcon;
-  text: string;
-  options: string[];
-  value: string;
-  onChange: (value: string) => void;
-  className?: string;
-  classNameIcon?: string;
-}) => {
+}: SelectFromListProps) => {
   return (
     <Select value={value} onValueChange={onChange}>
       <SelectTrigger className={cn("w-[180px] bg-transparent", className)}>

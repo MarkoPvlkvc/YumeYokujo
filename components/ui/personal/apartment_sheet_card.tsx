@@ -6,6 +6,7 @@ import {
   UserRound,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ApartmentSheetCardProps } from "@/lib/types";
 
 const ApartmentSheetCard = ({
   apartmentIndex,
@@ -15,15 +16,7 @@ const ApartmentSheetCard = ({
   translation,
   setSelectedApartment,
   setOpen,
-}: {
-  apartmentIndex: number;
-  src: string;
-  apartmentNr: string;
-  name: string;
-  translation: string;
-  setSelectedApartment: React.Dispatch<React.SetStateAction<number>>;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+}: ApartmentSheetCardProps) => {
   const handleButtonClick = () => {
     setSelectedApartment(apartmentIndex);
     setOpen(false);
@@ -77,7 +70,7 @@ const ApartmentSheetCard = ({
           onClick={handleButtonClick}
           variant="outline"
           size="icon"
-          className="size-8 bg-transparent transition-all hover:bg-gray/25 md:size-10"
+          className="can-hover:hover:bg-gray/25 size-8 bg-transparent transition-all md:size-10"
         >
           <ChevronRight className="size-5" />
         </Button>

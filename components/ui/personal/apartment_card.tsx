@@ -4,21 +4,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import { Calendar, BedDouble, UserRound, ShowerHead, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-
-interface ApartmentCardProps {
-  image: string;
-  number: string;
-  name: string;
-  japaneseName: string;
-  translation: string;
-  description: string;
-  reviews: number;
-  stars: number;
-  beds: number;
-  guests: number;
-  bathrooms: number;
-  apartmentIndex: number;
-}
+import { ApartmentCardProps } from "@/lib/types";
 
 const ApartmentCard = ({
   image,

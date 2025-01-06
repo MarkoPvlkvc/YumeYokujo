@@ -2,6 +2,7 @@
 
 import { ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { InfoCardProps } from "@/lib/types";
 
 const InfoCard = ({
   src,
@@ -11,15 +12,7 @@ const InfoCard = ({
   description,
   isHorizontal = false,
   blogIndex,
-}: {
-  src: string;
-  date: string;
-  type: string;
-  title: string;
-  description: string;
-  isHorizontal?: boolean;
-  blogIndex?: number;
-}) => {
+}: InfoCardProps) => {
   const router = useRouter();
 
   return (
@@ -27,7 +20,7 @@ const InfoCard = ({
       onClick={() => {
         if (blogIndex) router.push(`/news-&-events/${blogIndex}`);
       }}
-      className={`${isHorizontal ? "flex w-[250px] flex-col gap-4 sm:w-fit sm:flex-row sm:gap-6" : "row-span-5 grid w-[250px] grid-rows-subgrid md:w-[300px]"} box-content gap-y-0 rounded-[40px] border-[2px] border-transparent p-4 hover:cursor-pointer hover:border-gray hover:bg-gray/15`}
+      className={`${isHorizontal ? "flex w-[250px] flex-col gap-4 sm:w-fit sm:flex-row sm:gap-6" : "row-span-5 grid w-[250px] grid-rows-subgrid md:w-[300px]"} can-hover:hover:cursor-pointer can-hover:hover:border-gray can-hover:hover:bg-gray/15 box-content gap-y-0 rounded-[40px] border-[2px] border-transparent p-4`}
     >
       <img
         src={src}

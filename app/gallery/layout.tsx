@@ -4,7 +4,7 @@ import NavbarStatic from "@/components/ui/personal/navbar_static";
 
 export const metadata: Metadata = {
   title: "Gallery",
-  description: "Yume Yokujo Oasis Retreat",
+  description: "Yume Yokujo Oasis Retreat - Gallery",
 };
 
 export default function StaticLayout({

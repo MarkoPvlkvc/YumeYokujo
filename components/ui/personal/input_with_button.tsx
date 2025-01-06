@@ -10,7 +10,7 @@ export function InputWithButton() {
         className="rounded-md border-2 border-white/35 bg-transparent py-2 pl-6 focus:outline-none"
       />
       <Button
-        className="h-full border-[2px] border-transparent bg-white text-lightBlue hover:border-white/35 hover:bg-transparent hover:text-white"
+        className="can-hover:hover:border-white/35 can-hover:hover:bg-transparent can-hover:hover:text-white h-full border-[2px] border-transparent bg-white text-lightBlue"
         type="submit"
       >
         <SendHorizonal />

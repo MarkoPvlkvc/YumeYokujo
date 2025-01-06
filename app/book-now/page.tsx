@@ -284,7 +284,7 @@ const BookNowContent = () => {
             <AccommodationSheet
               apartmentSheetCards={apartmentSheetCards}
               setSelectedApartment={setSelectedApartment}
-              className="ml-auto mt-auto w-fit bg-transparent transition-all hover:bg-gray/25"
+              className="can-hover:hover:bg-gray/25 ml-auto mt-auto w-fit bg-transparent transition-all"
             />
           </div>
         </div>
@@ -313,7 +313,7 @@ const BookNowContent = () => {
                   options={["1", "2", "3", "4", "5", "6"]}
                   value={selectedAdults}
                   onChange={setSelectedAdults}
-                  className="mt-1 text-black/50 transition-all hover:text-black sm:w-full"
+                  className="can-hover:hover:text-black mt-1 text-black/50 transition-all sm:w-full"
                 />
               </div>
               <div className="flex-1">
@@ -325,7 +325,7 @@ const BookNowContent = () => {
                   options={["0", "1", "2", "3", "4", "5", "6"]}
                   value={selectedChildren}
                   onChange={setSelectedChildren}
-                  className="mt-1 text-black/50 transition-all hover:text-black sm:w-full"
+                  className="can-hover:hover:text-black mt-1 text-black/50 transition-all sm:w-full"
                 />
               </div>
               <div className="flex-1">
@@ -337,7 +337,7 @@ const BookNowContent = () => {
                   options={["1", "2", "3", "4", "5", "6"]}
                   value={selectedRooms}
                   onChange={setSelectedRooms}
-                  className="mt-1 text-black/50 transition-all hover:text-black sm:w-full"
+                  className="can-hover:hover:text-black mt-1 text-black/50 transition-all sm:w-full"
                 />
               </div>
             </div>

@@ -68,7 +68,7 @@ const NavigationMenuWithDropdown = ({ className }: { className?: string }) => {
             <NavigationMenuLink
               className={cn(
                 navigationMenuTriggerStyle(),
-                "bg-transparent font-semibold hover:text-lightBlue focus:text-lightBlue",
+                "can-hover:hover:text-lightBlue bg-transparent font-semibold focus:text-lightBlue",
               )}
             >
               HOME
@@ -76,7 +76,7 @@ const NavigationMenuWithDropdown = ({ className }: { className?: string }) => {
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent font-semibold hover:text-lightBlue focus:text-lightBlue">
+          <NavigationMenuTrigger className="can-hover:hover:text-lightBlue bg-transparent font-semibold focus:text-lightBlue">
             INFO
           </NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -94,7 +94,7 @@ const NavigationMenuWithDropdown = ({ className }: { className?: string }) => {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent font-semibold hover:text-lightBlue focus:text-lightBlue">
+          <NavigationMenuTrigger className="can-hover:hover:text-lightBlue bg-transparent font-semibold focus:text-lightBlue">
             ACCOMMODATION
           </NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -116,7 +116,7 @@ const NavigationMenuWithDropdown = ({ className }: { className?: string }) => {
             <NavigationMenuLink
               className={cn(
                 navigationMenuTriggerStyle(),
-                "bg-transparent font-semibold hover:text-lightBlue focus:text-lightBlue",
+                "can-hover:hover:text-lightBlue bg-transparent font-semibold focus:text-lightBlue",
               )}
             >
               OFFERS
@@ -128,7 +128,7 @@ const NavigationMenuWithDropdown = ({ className }: { className?: string }) => {
             <NavigationMenuLink
               className={cn(
                 navigationMenuTriggerStyle(),
-                "bg-transparent font-semibold hover:text-lightBlue focus:text-lightBlue",
+                "can-hover:hover:text-lightBlue bg-transparent font-semibold focus:text-lightBlue",
               )}
             >
               NEWS & EVENTS
@@ -150,7 +150,7 @@ const ListItem = React.forwardRef<
         <a
           ref={ref}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            "can-hover:hover:bg-accent can-hover:hover:text-accent-foreground block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors focus:bg-accent focus:text-accent-foreground",
             className,
           )}
           {...props}

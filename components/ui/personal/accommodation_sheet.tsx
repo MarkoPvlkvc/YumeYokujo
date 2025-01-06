@@ -3,16 +3,13 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ArrowRightLeft } from "lucide-react";
 import ApartmentSheetCard from "./apartment_sheet_card";
 import React from "react";
+import { AccomodationSheetProps } from "@/lib/types";
 
 const AccommodationSheet = ({
   className,
   apartmentSheetCards,
   setSelectedApartment,
-}: {
-  className?: string;
-  apartmentSheetCards: any[];
-  setSelectedApartment: React.Dispatch<React.SetStateAction<number>>;
-}) => {
+}: AccomodationSheetProps) => {
   const [open, setOpen] = React.useState(false);
 
   return (

@@ -17,62 +17,9 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/ui/personal/navbar";
 import InfoCard from "@/components/ui/personal/info_card";
 import BookingDetailsHero from "@/components/ui/personal/booking_details_hero";
+import { newsAndEventInfoCards, offersInfoCards } from "@/lib/constants";
 
 export default function Home() {
-  const newsAndEventInfoCards = [
-    {
-      src: "news1.jpg",
-      date: "MAY 11, 2024",
-      type: "EVENT",
-      title: "Moonlit Onsen Soiree",
-      description:
-        "Experience the magic of our Moonlit Onsen Soiree, where the soothing waters of our natural hot springs meet the shimmering glow of the moonlight. Slip into the warm embrace of our rejuvenati...",
-    },
-    {
-      src: "news2.jpg",
-      date: "MAY 09, 2024",
-      type: "EVENT",
-      title: "Sakura Serenity Festival",
-      description:
-        "Join us for a celebration of the enchanting cherry blossoms during our Sakura Serenity Festival. Witness the breathtaking beauty of the sakura trees in full bloom as...",
-    },
-    {
-      src: "news3.jpg",
-      date: "MAY 06, 2024",
-      type: "NEWS",
-      title: "Unveiling Our New Wellness Retreat",
-      description:
-        "We are thrilled to announce the launch of our newest offering: the Yume Yokujo Wellness Retreat. Designed to elevate your journey...",
-    },
-  ];
-
-  const offersInfoCards = [
-    {
-      src: "offers1.jpg",
-      date: "UNTIL APR 30, 2024",
-      type: "SEASONAL",
-      title: "Blossom Bliss Spring Special",
-      description:
-        "Enjoy a 20% discount on your stay during the cherry blossom season. Indulge in complimentary guided walks to nearby cherry blossom spots and traditional tea ceremonies to fully immerse yourself in the season's splendor.",
-    },
-    {
-      src: "offers2.jpg",
-      date: "FOREVER",
-      type: "ROMANTIC",
-      title: "Moonlit Serenity Retreat",
-      description:
-        "Receive a complimentary candlelit dinner for two at our exclusive outdoor dining area, along with a bottle of champagne upon arrival. Enjoy a 15% discount on your stay when booking for 2 people.",
-    },
-    {
-      src: "offers3.jpg",
-      date: "UNTIL AUG 31, 2024",
-      type: "FAMILY",
-      title: "Family Fun Getaway",
-      description:
-        "Kids stay and eat for free! Enjoy complimentary access to our family-friendly activities, including nature walks, Japanese storytelling sessions, and traditional crafts workshops.",
-    },
-  ];
-
   return (
     <main>
       <Navbar />
@@ -82,7 +29,7 @@ export default function Home() {
           src="/background-upscaled.jpeg"
           className="pointer-events-none h-full w-full select-none object-cover"
         ></img>
-        <p className="absolute text-nowrap text-5xl font-bold text-lightBlue opacity-50 mix-blend-lighten md:text-7xl lg:text-8xl">
+        <p className="absolute select-none text-nowrap text-5xl font-bold text-lightBlue opacity-50 mix-blend-lighten md:text-7xl lg:text-8xl">
           YUME YOKUJO
         </p>
         <p className="absolute text-center font-playfair text-3xl text-white md:text-5xl lg:text-6xl">
