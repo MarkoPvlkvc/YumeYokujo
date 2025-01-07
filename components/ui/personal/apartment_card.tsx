@@ -36,7 +36,7 @@ const ApartmentCard = ({
   };
 
   return (
-    <div className="grid h-fit w-full grid-cols-[1fr_auto] gap-x-6 gap-y-2 rounded-3xl">
+    <div className="grid h-fit w-full grid-cols-[1fr_auto] grid-rows-1 gap-x-6 gap-y-2 rounded-3xl">
       <div className="col-span-2 aspect-[4/2.5] h-[250px] w-full min-w-[300px] overflow-hidden rounded-3xl md:col-span-1 md:h-full">
         <img src={image} className="h-full w-full object-cover" />
       </div>
@@ -65,17 +65,17 @@ const ApartmentCard = ({
         </p>
 
         <div className="mt-10 flex items-center gap-5">
-          <div className="flex items-center gap-x-2 gap-y-1 max-[450px]:flex-col">
+          <div className="max-[450px]:flex-col flex items-center gap-x-2 gap-y-1">
             <BedDouble className="size-5 md:size-6" />
             <p className="text-base font-light md:text-lg">{beds}</p>
           </div>
 
-          <div className="flex items-center gap-x-2 gap-y-1 max-[450px]:flex-col">
+          <div className="max-[450px]:flex-col flex items-center gap-x-2 gap-y-1">
             <UserRound className="size-5 md:size-6" />
             <p className="text-base font-light md:text-lg">{guests}</p>
           </div>
 
-          <div className="flex items-center gap-x-2 gap-y-1 max-[450px]:flex-col">
+          <div className="max-[450px]:flex-col flex items-center gap-x-2 gap-y-1">
             <ShowerHead className="size-5 md:size-6" />
             <p className="text-base font-light md:text-lg">{bathrooms}</p>
           </div>
@@ -85,7 +85,7 @@ const ApartmentCard = ({
             size={"lg"}
             className="ml-auto w-fit"
           >
-            <Calendar className="mr-2 block h-4 w-4 max-[450px]:hidden" />
+            <Calendar className="max-[450px]:hidden mr-2 block h-4 w-4" />
             BOOK NOW
           </Button>
         </div>
