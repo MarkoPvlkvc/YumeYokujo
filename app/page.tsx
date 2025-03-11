@@ -1,19 +1,5 @@
-import DatePickerWithRange from "@/components/ui/personal/date_picker_with_range";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import {
-  UserRound,
-  PersonStanding,
-  BedDouble,
-  CalendarCheck,
-  TramFront,
-  Utensils,
-  Drama,
-  TentTree,
-  ShowerHead,
-  ArrowRight,
-} from "lucide-react";
-import SelectFromList from "@/components/ui/personal/select_from_list";
-import { Button } from "@/components/ui/button";
+import { TramFront, Utensils, Drama, TentTree, ShowerHead } from "lucide-react";
 import Navbar from "@/components/ui/personal/navbar";
 import InfoCard from "@/components/ui/personal/info_card";
 import BookingDetailsHero from "@/components/ui/personal/booking_details_hero";

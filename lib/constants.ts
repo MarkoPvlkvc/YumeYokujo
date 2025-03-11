@@ -247,3 +247,66 @@ export const posts: { [key: string]: PostProps } = {
     tags: ["Grand Opening", "Onsen", "Retreat"],
   },
 };
+
+export const apartmentSheetCards = [
+  {
+    src: "/apartments/a1.jpeg",
+    apartmentNr: "1",
+    name: "Matsu - 松",
+    translation: "Pine",
+  },
+  {
+    src: "/apartments/a2.png",
+    apartmentNr: "2",
+    name: "Sakura - 桜",
+    translation: "Cherry Blossom",
+  },
+  {
+    src: "/apartments/a3.png",
+    apartmentNr: "3",
+    name: "Fuji - 藤",
+    translation: "Wisteria",
+  },
+  {
+    src: "/apartments/a4.png",
+    apartmentNr: "4",
+    name: "Kaze - 風",
+    translation: "Wind",
+  },
+  {
+    src: "/apartments/a5.png",
+    apartmentNr: "5",
+    name: "Tsubaki - 椿",
+    translation: "Camellia",
+  },
+  {
+    src: "/apartments/b1.jpeg",
+    apartmentNr: "1",
+    name: "Take - 竹",
+    translation: "Bamboo",
+  },
+  {
+    src: "/apartments/b2.jpeg",
+    apartmentNr: "2",
+    name: "Ume - 梅",
+    translation: "Plum Blossom",
+  },
+  {
+    src: "/apartments/b3.jpeg",
+    apartmentNr: "3",
+    name: "Hoshi - 星",
+    translation: "Star",
+  },
+  {
+    src: "/apartments/b4.jpeg",
+    apartmentNr: "4",
+    name: "Mizu - 水",
+    translation: "Water",
+  },
+  {
+    src: "/apartments/b5.jpeg",
+    apartmentNr: "5",
+    name: "Hana - 花",
+    translation: "Flower",
+  },
+];

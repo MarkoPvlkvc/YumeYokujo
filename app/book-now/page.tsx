@@ -21,6 +21,7 @@ import AccommodationSheet from "@/components/ui/personal/accommodation_sheet";
 import { createClient } from "@/utils/supabase/client";
 import useSWR from "swr";
 import { loadStripe } from "@stripe/stripe-js";
+import { apartmentSheetCards } from "@/lib/constants";
 
 const fetcher = async () => {
   const supabase = createClient();
@@ -53,68 +54,6 @@ const BookNowContent = () => {
   });
 
   const [selectedApartment, setSelectedApartment] = React.useState(0);
-  const apartmentSheetCards = [
-    {
-      src: "/apartments/a1.jpeg",
-      apartmentNr: "1",
-      name: "Matsu - 松",
-      translation: "Pine",
-    },
-    {
-      src: "/apartments/a2.png",
-      apartmentNr: "2",
-      name: "Sakura - 桜",
-      translation: "Cherry Blossom",
-    },
-    {
-      src: "/apartments/a3.png",
-      apartmentNr: "3",
-      name: "Fuji - 藤",
-      translation: "Wisteria",
-    },
-    {
-      src: "/apartments/a4.png",
-      apartmentNr: "4",
-      name: "Kaze - 風",
-      translation: "Wind",
-    },
-    {
-      src: "/apartments/a5.png",
-      apartmentNr: "5",
-      name: "Tsubaki - 椿",
-      translation: "Camellia",
-    },
-    {
-      src: "/apartments/b1.jpeg",
-      apartmentNr: "1",
-      name: "Take - 竹",
-      translation: "Bamboo",
-    },
-    {
-      src: "/apartments/b2.jpeg",
-      apartmentNr: "2",
-      name: "Ume - 梅",
-      translation: "Plum Blossom",
-    },
-    {
-      src: "/apartments/b3.jpeg",
-      apartmentNr: "3",
-      name: "Hoshi - 星",
-      translation: "Star",
-    },
-    {
-      src: "/apartments/b4.jpeg",
-      apartmentNr: "4",
-      name: "Mizu - 水",
-      translation: "Water",
-    },
-    {
-      src: "/apartments/b5.jpeg",
-      apartmentNr: "5",
-      name: "Hana - 花",
-      translation: "Flower",
-    },
-  ];
 
   const searchParams = useSearchParams();
 
@@ -284,7 +223,7 @@ const BookNowContent = () => {
             <AccommodationSheet
               apartmentSheetCards={apartmentSheetCards}
               setSelectedApartment={setSelectedApartment}
-              className="can-hover:hover:bg-gray/25 ml-auto mt-auto w-fit bg-transparent transition-all"
+              className="ml-auto mt-auto w-fit bg-transparent transition-all can-hover:hover:bg-gray/25"
             />
           </div>
         </div>
@@ -313,7 +252,7 @@ const BookNowContent = () => {
                   options={["1", "2", "3", "4", "5", "6"]}
                   value={selectedAdults}
                   onChange={setSelectedAdults}
-                  className="can-hover:hover:text-black mt-1 text-black/50 transition-all sm:w-full"
+                  className="mt-1 text-black/50 transition-all sm:w-full can-hover:hover:text-black"
                 />
               </div>
               <div className="flex-1">
@@ -325,7 +264,7 @@ const BookNowContent = () => {
                   options={["0", "1", "2", "3", "4", "5", "6"]}
                   value={selectedChildren}
                   onChange={setSelectedChildren}
-                  className="can-hover:hover:text-black mt-1 text-black/50 transition-all sm:w-full"
+                  className="mt-1 text-black/50 transition-all sm:w-full can-hover:hover:text-black"
                 />
               </div>
               <div className="flex-1">
@@ -337,7 +276,7 @@ const BookNowContent = () => {
                   options={["1", "2", "3", "4", "5", "6"]}
                   value={selectedRooms}
                   onChange={setSelectedRooms}
-                  className="can-hover:hover:text-black mt-1 text-black/50 transition-all sm:w-full"
+                  className="mt-1 text-black/50 transition-all sm:w-full can-hover:hover:text-black"
                 />
               </div>
             </div>
